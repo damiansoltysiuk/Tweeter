@@ -5,10 +5,12 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "tweets")
 public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_")
     private Long id;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
