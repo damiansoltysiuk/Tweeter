@@ -1,0 +1,8 @@
+-- INSERT INTO users (login, first_name, last_name, email, password) VALUE ('JBKing', 'Jack', 'Knock', 'jbking@yahoo.com', 'jbjbjb12');
+-- INSERT INTO users (login, first_name, last_name, email, password) VALUE ('MKKing', 'Mark', 'Knock', 'mbking@yahoo.com', 'mbmbmb21');
+-- INSERT INTO users (login, first_name, last_name, email, password) VALUE ('DS', 'Danyy', 'Savickas', 'ds@pr.com', '!@QWASzx');
+--
+--
+-- INSERT INTO roles (role_ID, role) VALUE (1, 'ADMIN');
+-- INSERT INTO roles (role_ID, role) VALUE (2, 'MODERATION');
+-- INSERT INTO roles (role_ID, role) VALUE (3, 'USER');
