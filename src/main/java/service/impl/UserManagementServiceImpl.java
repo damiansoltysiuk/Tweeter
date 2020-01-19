@@ -36,6 +36,16 @@ public class UserManagementServiceImpl implements UserManagementService {
     }
 
     @Override
+    public boolean isEmailExist(String email) {
+        try {
+            User user = userDAO.getUserByEmail(email);
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
+
+    @Override
     public void follow(String currentUserLogin, String userLoginToFollow) {
         User currentUser = userDAO.getUserByLogin(currentUserLogin);
         User userToFollow = userDAO.getUserByLogin(userLoginToFollow);
