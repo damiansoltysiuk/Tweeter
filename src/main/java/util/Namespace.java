@@ -1,7 +1,5 @@
 package util;
 
-import javax.servlet.http.HttpServletRequest;
-
 public class Namespace {
     public static final String USER_LOGIN = "login";
     public static final String USER_NAME = "name";
@@ -18,6 +16,10 @@ public class Namespace {
     public static final String EMAIL_ERROR_MESSAGE = "Typed mail is already in use";
 
 
-    public static final String USER_NOT_EXIST_ERROR_HEADER = "INVALID LOGIN";
-    public static final String USER_NOT_EXIST_ERROR_MESSAGE = "INVALID LOGIN";
+    public static final String LOGIN_OR_PASSWORD_ERROR_HEADER = "Error";
+    public static final String LOGIN_OR_PASSWORD_ERROR_MESSAGE = "Invalid login or password";
+
+    public static final String LOGGED_USER = "loggedUser";
+
+
 }

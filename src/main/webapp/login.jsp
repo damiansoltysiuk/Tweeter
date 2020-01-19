@@ -5,12 +5,31 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background: #f5f5f5
+        }
+
+        .blue {
+            background-color: #00b5ec !important;
+        }
+    </style>
 </head>
 <body>
 <main role="main" class="container">
     <div class="my-3 p-3 bg-white rounded box-shadow">
         <h4 class="text-center mb-4 mt-1">Log in</h4>
         <hr>
+
+        <c:if test="${errors != null}">
+            <div class="alert alert-danger">
+                <h5>${errors.header}</h5>
+                <h6>${errors.message}</h6>
+            </div>
+        </c:if>
+
         <form action="login" method="POST">
             <div class="form-group">
                 <div class="input-group">
@@ -38,12 +57,6 @@
             </div>
         </form>
     </div>
-
-    <c:if test="${error.message != null}">
-        <div class="alert alert-warning">
-            <strong>${error.message}</strong>
-        </div>
-    </c:if>
 </main>
 </body>
 </html>

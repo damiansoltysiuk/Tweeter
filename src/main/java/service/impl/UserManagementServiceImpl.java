@@ -75,4 +75,10 @@ public class UserManagementServiceImpl implements UserManagementService {
             return false;
         }
     }
+
+    @Override
+    public boolean validationUserLoginAndPassword(String login, String password) {
+        User user = userDAO.getUserByLogin(login);
+        return user.getPassword().equals(password);
+    }
 }

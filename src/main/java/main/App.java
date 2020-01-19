@@ -1,14 +1,8 @@
-import hibernate.util.HibernateUtil;
-import model.Tweet;
+package main;
+
 import model.User;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 import service.impl.TweetManagementServiceImpl;
 import service.impl.UserManagementServiceImpl;
-
-import java.util.Set;
 
 //import model.Role;
 //import util.HibernateUtil;

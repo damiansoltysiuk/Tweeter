@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/register.jsp").forward(req, resp);
+        req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -32,10 +32,16 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter(USER_LOGIN);
         String password = req.getParameter(USER_PASSWORD);
 
-        if(!service.isUserExist(login)) {
-            ValidationError error = new ValidationError(USER_NOT_EXIST_ERROR_HEADER, USER_NOT_EXIST_ERROR_MESSAGE);
-            req.setAttribute();
+        if(!service.isUserExist(login) || !service.validationUserLoginAndPassword(login, password)) {
+            ValidationError error = new ValidationError(LOGIN_OR_PASSWORD_ERROR_HEADER, LOGIN_OR_PASSWORD_ERROR_MESSAGE);
+            req.setAttribute("errors", error);
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+            return;
         }
+
+        req.setAttribute(LOGGED_USER, login);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
 
     }
 }
