@@ -45,7 +45,7 @@ public class UserDAOImpl extends AbstractDao implements UserDAO {
 
     @Override
     public Set<User> getNotFollowedUsers(String login) {
-        List<User> users = entityManager.createQuery("SELECT u FROM User u != " + login, User.class).getResultList();
+        List<User> users = entityManager.createQuery("SELECT u FROM User u WHERE u.login != :login", User.class).setParameter("login",login).getResultList();
         Set<User> followedUser = getFollowers(login);
         users.removeAll(followedUser);
         users.remove(login);

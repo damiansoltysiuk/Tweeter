@@ -6,6 +6,7 @@ import model.Tweet;
 import model.User;
 
 import javax.persistence.TypedQuery;
+import java.util.Date;
 import java.util.List;
 
 public class TweetDAOImpl extends AbstractDao implements TweetDAO {
@@ -21,6 +22,7 @@ public class TweetDAOImpl extends AbstractDao implements TweetDAO {
     public void updateTweet(Long tweetID, String message) {
         Tweet tweet = getTweet(tweetID);
         tweet.setMessage(message);
+        tweet.setPublishedAt(new Date());
         hibernateUtil.save(tweet);
     }
 

@@ -2,17 +2,18 @@ package service.impl;
 
 import dao.TweetDAO;
 import dao.UserDAO;
+import dao.impl.TweetDAOImpl;
+import dao.impl.UserDAOImpl;
 import model.Tweet;
 import model.User;
 import service.TweetManagementService;
 
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class TweetManagementServiceImpl implements TweetManagementService {
-    private UserDAO userDAO;
-    private TweetDAO tweetDAO;
+    private UserDAO userDAO = new UserDAOImpl();
+    private TweetDAO tweetDAO = new TweetDAOImpl();
 
     @Override
     public void addTweet(String userLogin, String message) {
@@ -33,18 +34,10 @@ public class TweetManagementServiceImpl implements TweetManagementService {
     @Override
     public Set<Tweet> getFollowedTweets(String userLogin) {
         User user = userDAO.getUserByLogin(userLogin);
-        Set<User> follows = user.getFollows();
-        Set<Tweet> result = new LinkedHashSet<>();
-
-        for (User u : follows) {
-            List<Tweet> userTweets = tweetDAO.getUserTweets(u.getLogin());
-            for (Tweet t : userTweets) {
-                result.add(t);
-            }
-        }
-
-        result.addAll(tweetDAO.getUserTweets(userLogin));
-
-        return result;
+        Set<Tweet> followedTweets = new HashSet<>();
+        Set<User> follows = userDAO.getFollows(userLogin);
+        followedTweets.addAll(tweetDAO.getUserTweets(userLogin));
+        follows.stream().forEach(p -> followedTweets.addAll(tweetDAO.getUserTweets(p.getLogin())));
+        return followedTweets;
     }
 }

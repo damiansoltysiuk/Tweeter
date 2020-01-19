@@ -32,6 +32,10 @@ public class Tweet {
         this.message = message;
     }
 
+    public void setPublishedAt(Date publishedAt) {
+        this.publishedAt = publishedAt;
+    }
+
     public void setAuthor(User author) {
         this.author = author;
     }
