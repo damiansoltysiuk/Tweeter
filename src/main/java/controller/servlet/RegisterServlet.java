@@ -43,18 +43,18 @@ public class RegisterServlet extends HttpServlet {
         }
 
         String login = req.getParameter(USER_LOGIN);
-        if(service.isUserExist(login)) {
+        if (service.isUserExist(login)) {
             ValidationError error = new ValidationError(LOGIN_ERROR_HEADER, LOGIN_ERROR_MESSAGE);
             errors.add(error);
         }
 
         String email = req.getParameter(USER_EMAIL);
-        if(service.isEmailExist(email)) {
+        if (service.isEmailExist(email)) {
             ValidationError error = new ValidationError(EMAIL_ERROR_HEADER, EMAIL_ERROR_MESSAGE);
             errors.add(error);
         }
 
-        if(errors.size() != 0) {
+        if (errors.size() != 0) {
             req.setAttribute("errors", errors);
             req.getRequestDispatcher("/register.jsp").forward(req, resp);
             return;
@@ -72,6 +72,6 @@ public class RegisterServlet extends HttpServlet {
                 .build();
 
         service.saveUser(user);
-        req.getRequestDispatcher("index.jsp").forward(req,resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

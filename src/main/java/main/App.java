@@ -4,9 +4,6 @@ import model.User;
 import service.impl.TweetManagementServiceImpl;
 import service.impl.UserManagementServiceImpl;
 
-//import model.Role;
-//import util.HibernateUtil;
-
 public class App {
     public static void main(String[] args) {
         UserManagementServiceImpl umsi = new UserManagementServiceImpl();
@@ -45,17 +42,5 @@ public class App {
         tmsi.deleteTweet(2l);
         tmsi.updateTweet(3l, "Modify tweet");
         tmsi.getFollowedTweets("Danyy").stream().forEach(e -> System.out.println(e));
-
-//        umsi.saveUser(u1);
-//        umsi.saveUser(u2);
-//        umsi.saveUser(u3);
-//        List<User> users = Arrays.asList(u1, u2, u3);
-//
-//        Role r1 = new Role("ADMIN");
-//        Role r2 = new Role("ADMIN");
-
-//        HibernateUtil instance = HibernateUtil.getInstance();
-
-
     }
 }

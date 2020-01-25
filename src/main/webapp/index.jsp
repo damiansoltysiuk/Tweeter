@@ -1,4 +1,3 @@
-<%@ page import="util.Namespace" %>
 <%@ page import="static util.Namespace.*" %>
 <html>
 <body>

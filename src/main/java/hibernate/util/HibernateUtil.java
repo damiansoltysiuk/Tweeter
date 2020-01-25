@@ -12,7 +12,8 @@ public class HibernateUtil {
     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
     private final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-    private HibernateUtil() {}
+    private HibernateUtil() {
+    }
 
     public static HibernateUtil getInstance() {
         if (instance == null) {
@@ -27,7 +28,7 @@ public class HibernateUtil {
 
     public void save(Object o) {
         entityManager.getTransaction().begin();
-        if(!entityManager.contains(o)) {
+        if (!entityManager.contains(o)) {
             entityManager.persist(o);
             entityManager.flush();
         }

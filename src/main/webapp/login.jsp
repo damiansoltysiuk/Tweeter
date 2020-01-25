@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import=" java.util.* " %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -49,11 +48,18 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <div class="form-check">
+                    <input id="remember" name="remember" class="form-check-input" type="checkbox">
+                    <label for="remember" class="form-check-label">Remember me</label>
+                </div>
+            </div>
+
             <div class="form-group"></div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block blue">Log in</button>
-                <p class="text-center"><a href="login" class="btn">Back to main page</a></p>
+                <button type="submit" class="btn btn-primary btn-block blue">Log in</button><br/>
+                <p class="text-center"><a href="register" class="btn">Sign up</a></p>
             </div>
         </form>
     </div>
