@@ -76,7 +76,5 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(passwordCookie);
         }
         req.getRequestDispatcher("users").forward(req, resp); //przydział dynamiczny, by miec użytkownika konkretnego
-
-
     }
 }
