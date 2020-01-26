@@ -22,4 +22,6 @@ public interface UserManagementService {
     boolean isEmailExist(String email);
 
     boolean validationUserLoginAndPassword(String login, String password);
+
+    Set<User> getFollowedUsers(String login);
 }

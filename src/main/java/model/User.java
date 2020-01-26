@@ -31,9 +31,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "role_ID", nullable = false)
-    private Role role;
+//    @ManyToOne
+//    @JoinColumn(name = "role_ID", nullable = false)
+//    private Role role;
 
     @Column(name = "date_register")
     @CreationTimestamp

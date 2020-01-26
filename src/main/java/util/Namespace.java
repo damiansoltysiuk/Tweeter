@@ -23,4 +23,7 @@ public class Namespace {
 
     public static final String CHECKBOX_CHECKED = "on";
     public static final String REMEMBER = "remember";
+
+    public static final String FOLLOWED_USERS = "followedUsers";
+    public static final String NOT_FOLLOWED_USERS = "notFollowedUsers";
 }
